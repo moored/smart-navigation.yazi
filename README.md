@@ -22,6 +22,9 @@ This plugin depends on the [max-preview.yazi](https://github.com/yazi-rs/plugins
 ```sh
 ya pack -a yazi-rs/plugins:max-preview
 ya pack -a AmeerArsala/smart-navigation
+
+# If you also want the ability to hide preview
+ya pack -a yazi-rs/plugins:hide-preview
 ```
 
 ## Usage
@@ -53,8 +56,15 @@ prepend_keymap = [
   { on = "<PageDown>", run = "plugin smart-navigation --sync --args='jump 50% 100'", desc = "Jump down half a page" },
 
   { on = "<Enter>", run = "plugin smart-navigation --sync --args='open'", desc = "Open selected files" },
+
+  # FOR HIDING PREVIEW
+  { on = "T", run = "plugin smart-navigation --sync --args='togglepreviewvisibility'", desc = "Hide or show the preview" },
 ]
 ```
+
+### Caveats
+
+- If you are using this with the [`hide-preview`](https://github.com/yazi-rs/plugins/tree/main/hide-preview.yazi) plugin, there are some bugs. However, they are nonexistent if you call hide-preview from `smart-navigation` and not `hide-preview`. So when mapping your keys, do it like the way above, not the other way around.
 
 ## License
 

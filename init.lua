@@ -70,6 +70,12 @@ return {
 
 				ya.manager_emit("open", { hovered = true })
 			end,
+			["togglepreviewvisibility"] = function()
+				-- only allow this if not maximized
+				if not is_preview_maximized then
+					ya.manager_emit("plugin", { "hide-preview", sync = true })
+				end
+			end,
 		}
 
 		-- Call the correct function
