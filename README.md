@@ -1,6 +1,12 @@
 # smart-navigation.yazi
 
-The Smoothest UX on Yazi you'll ever see: preview files in **flow**
+The Smoothest UX on Yazi you'll ever see: preview files in **flow**.
+
+![smart-navigation](https://github.com/user-attachments/assets/ae3a5cae-b49c-4ffa-896b-b71fbe27d1bd)
+
+You can also cycle while in-preview:
+
+![smart-navigation-2](https://github.com/user-attachments/assets/de3bf54e-2c76-44fc-bfe5-c4d6d3a5e782)
 
 ## Features
 
