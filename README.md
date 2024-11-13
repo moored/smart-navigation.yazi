@@ -2,11 +2,11 @@
 
 The Smoothest UX on Yazi you'll ever see: preview files in **flow**.
 
-https://github.com/user-attachments/assets/ae3a5cae-b49c-4ffa-896b-b71fbe27d1bd
+<https://github.com/user-attachments/assets/ae3a5cae-b49c-4ffa-896b-b71fbe27d1bd>
 
 You can also cycle while in-preview:
 
-https://github.com/user-attachments/assets/de3bf54e-2c76-44fc-bfe5-c4d6d3a5e782
+<https://github.com/user-attachments/assets/de3bf54e-2c76-44fc-bfe5-c4d6d3a5e782>
 
 ## Features
 
@@ -21,7 +21,7 @@ This plugin depends on the [max-preview.yazi](https://github.com/yazi-rs/plugins
 
 ```sh
 ya pack -a yazi-rs/plugins:max-preview
-ya pack -a AmeerArsala/smart-navigation.yazi
+ya pack -a AmeerArsala/smart-navigation
 ```
 
 ## Usage
