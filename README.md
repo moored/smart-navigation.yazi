@@ -17,14 +17,11 @@ You can also cycle while in-preview:
 
 ## Installation
 
-This plugin depends on the [max-preview.yazi](https://github.com/yazi-rs/plugins/blob/main/max-preview.yazi) plugin, so you gotta install both as shown below:
+This plugin depends on the [toggle-pane.yazi](https://github.com/yazi-rs/plugins/blob/main/toggle-pane.yazi) plugin, so you gotta install both as shown below:
 
 ```sh
-ya pack -a yazi-rs/plugins:max-preview
+ya pack -a yazi-rs/plugins:toggle-pane
 ya pack -a AmeerArsala/smart-navigation
-
-# If you also want the ability to hide preview
-ya pack -a yazi-rs/plugins:hide-preview
 ```
 
 ## Usage

@@ -1,3 +1,4 @@
+--- @since 25.2.7
 --- @sync entry
 
 return {
@@ -17,12 +18,12 @@ return {
 
 		local function maximize_preview()
 			st.preview_maxed = true
-			ya.manager_emit("plugin", { "max-preview" })
+			ya.manager_emit("plugin", { "toggle-pane", "max-preview" })
 		end
 
 		local function minimize_preview()
 			st.preview_maxed = nil -- unset it
-			ya.manager_emit("plugin", { "max-preview" })
+			ya.manager_emit("plugin", { "toggle-pane"," max-preview" })
 		end
 
 		local fns = {
@@ -73,7 +74,7 @@ return {
 			["togglepreviewvisibility"] = function()
 				-- only allow this if not maximized
 				if not is_preview_maximized then
-					ya.manager_emit("plugin", { "hide-preview" })
+					ya.manager_emit("plugin", { "toggle-pane", "min-preview" })
 				end
 			end,
 		}
