@@ -1,3 +1,4 @@
+--- @since 25.2.7
 --- @sync entry
 
 return {
@@ -7,7 +8,7 @@ return {
 
 	--- @param st table State
 	--- @param args EntryArgs this cannot be nil
-	entry = function(st, args)
+	entry = function(st, jobs)
 		-- smart maximize preview w/ l/->
 		-- smart seeking w/ up/down/j/k
 		-- smart minimize w/ h/<-
@@ -17,12 +18,12 @@ return {
 
 		local function maximize_preview()
 			st.preview_maxed = true
-			ya.manager_emit("plugin", { "max-preview", sync = true })
+			ya.manager_emit("plugin", { "toggle-pane", "max-preview" })
 		end
 
 		local function minimize_preview()
 			st.preview_maxed = nil -- unset it
-			ya.manager_emit("plugin", { "max-preview", sync = true })
+			ya.manager_emit("plugin", { "toggle-pane"," max-preview" })
 		end
 
 		local fns = {
@@ -53,8 +54,8 @@ return {
 			end,
 			["jump"] = function()
 				-- jumping based on whether in preview or not
-				local default_vec = args[2] -- string
-				local preview_lines_vec = args[3] or default_vec
+				local default_vec = jobs.args[2] -- string
+				local preview_lines_vec = jobs.args[3] or default_vec
 
 				if not is_preview_maximized then
 					ya.manager_emit("arrow", { default_vec })
@@ -73,12 +74,12 @@ return {
 			["togglepreviewvisibility"] = function()
 				-- only allow this if not maximized
 				if not is_preview_maximized then
-					ya.manager_emit("plugin", { "hide-preview", sync = true })
+					ya.manager_emit("plugin", { "toggle-pane", "min-preview" })
 				end
 			end,
 		}
 
 		-- Call the correct function
-		fns[args[1]]()
+		fns[jobs.args[1]]()
 	end,
 }
