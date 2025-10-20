@@ -18,19 +18,19 @@ return {
 
 		local function maximize_preview()
 			st.preview_maxed = true
-			ya.manager_emit("plugin", { "toggle-pane", "max-preview" })
+			ya.mgr_emit("plugin", { "toggle-pane", "max-preview" })
 		end
 
 		local function minimize_preview()
 			st.preview_maxed = nil -- unset it
-			ya.manager_emit("plugin", { "toggle-pane"," max-preview" })
+			ya.mgr_emit("plugin", { "toggle-pane"," max-preview" })
 		end
 
 		local fns = {
 			["left"] = function()
 				-- either act as normal with left or minimize the preview
 				if not is_preview_maximized then
-					ya.manager_emit("leave", {}) -- default action for left
+					ya.mgr_emit("leave", {}) -- default action for left
 				else
 					-- The preview is maximized; exit it by toggling the other plugin
 					minimize_preview()
@@ -43,7 +43,7 @@ return {
 				-- otherwise, if preview is not maximized, then maximize it
 				local h = cx.active.current.hovered
 				if h and h.cha.is_dir then
-					ya.manager_emit("enter", { hovered = true })
+					ya.mgr_emit("enter", { hovered = true })
 				elseif not is_preview_maximized then
 					-- otherwise, it is a file that is not maximized, so maximize it
 					maximize_preview()
@@ -58,9 +58,9 @@ return {
 				local preview_lines_vec = jobs.args[3] or default_vec
 
 				if not is_preview_maximized then
-					ya.manager_emit("arrow", { default_vec })
+					ya.mgr_emit("arrow", { default_vec })
 				else
-					ya.manager_emit("seek", { preview_lines_vec })
+					ya.mgr_emit("seek", { preview_lines_vec })
 				end
 			end,
 			["open"] = function()
@@ -69,12 +69,12 @@ return {
 					minimize_preview()
 				end
 
-				ya.manager_emit("open", { hovered = true })
+				ya.mgr_emit("open", { hovered = true })
 			end,
 			["togglepreviewvisibility"] = function()
 				-- only allow this if not maximized
 				if not is_preview_maximized then
-					ya.manager_emit("plugin", { "toggle-pane", "min-preview" })
+					ya.mgr_emit("plugin", { "toggle-pane", "min-preview" })
 				end
 			end,
 		}
